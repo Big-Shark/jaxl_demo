@@ -1,0 +1,2 @@
+#RUN
+php bot.php

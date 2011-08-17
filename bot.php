@@ -38,7 +38,7 @@ class Bot {
 
 	//вызывается после авторизации бота на сервере
 	function post_auth($payload, $jaxl) {
-		$this->jaxl->sendMessage($this->admin, 'hello');
+		$this->jaxl->sendMessage($this->admin, 'Hello');
 		$this->jaxl->setStatus(false, false, false, true);
 		$this->jaxl->discoItems($this->jaxl->domain, array($this, 'handle_disco_items'));
 		$this->jaxl->getRosterList();
@@ -152,8 +152,8 @@ class Bot {
 	}
 	
 	//команда send
-	function action_send($payload, $to, $baby){
-		$this->jaxl->sendMessage($to, $baby);
+	function action_send($payload, $to, $message){
+		$this->jaxl->sendMessage($to, $message);
 	}
 	
 	//возврашает конфиг
@@ -162,8 +162,8 @@ class Bot {
 	}
 
 	//дублируем send_message
-	function send_message($jid, $msg){
-		return $this->jaxl->sendMessage($jid, $msg);
+	function send_message($jid, $message){
+		return $this->jaxl->sendMessage($jid, $message);
 	}
 	
 	//возврашает чистый jid

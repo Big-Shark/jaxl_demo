@@ -83,7 +83,7 @@ class Bot {
 					if(strpos($body, ' ') === FALSE){
 						$method_name = 'action_'.$body;
 					}else{
-						$method_name = trim('action_'.substr($body, 0, strpos($body, ' ')));
+						$method_name = 'action_'.substr($body, 0, strpos($body, ' '));
 					}
 
 					if(method_exists($this, $method_name)){
@@ -152,8 +152,8 @@ class Bot {
 	}
 	
 	//команда send
-	function action_send($payload, $from, $baby){
-		$this->jaxl->sendMessage($from, $baby);
+	function action_send($payload, $to, $baby){
+		$this->jaxl->sendMessage($to, $baby);
 	}
 	
 	//возврашает конфиг
